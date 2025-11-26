@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>TRAVEL NETWORK — Ancient Trek Ladakh</title>
+<meta name="description" content="TRAVEL NETWORK — Authentic Ladakh itineraries, tours, photos and travel journal. Ancient Trek sample itineraries included."/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --lp-blue: #005f9e;      /* main Lonely-planet like blue */
+  --lp-teal: #0ea5a2;
+  --muted: #556070;
+  --bg: #f6fafc;
+  --card: #ffffff;
+  --maxW: 1100px;
+  --radius: 12px;
+  --shadow: 0 10px 30px rgba(2,6,23,0.06);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;background:var(--bg);color:#0f172a;line-height:1.45}
+.container{max-width:var(--maxW);margin:28px auto;padding:18px}
+
+/* Header */
+.header{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.brand{display:flex;align-items:center;gap:12px}
+.logo{width:56px;height:56px;border-radius:10px;background:var(--lp-blue);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow)}
+.brand h1{margin:0;font-size:18px;letter-spacing:0.4px}
+.nav{display:flex;gap:10px;align-items:center}
+.nav a{color:var(--muted);text-decoration:none;padding:8px 10px;border-radius:8px;font-weight:600}
+.nav a:hover{background:rgba(2,6,23,0.04);color:var(--lp-blue)}
+.cta{background:var(--lp-blue);color:#fff;padding:9px 14px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+
+/* Hero */
+.hero{display:grid;grid-template-columns:1fr 360px;gap:18px;align-items:center;margin-top:18px}
+@media(max-width:980px){.hero{grid-template-columns:1fr}}
+.hero-left{background:linear-gradient(180deg,#ffffff,#f6fbfd);padding:28px;border-radius:var(--radius);box-shadow:var(--shadow)}
+.hero-left .kicker{display:inline-block;background:rgba(14,165,162,0.12);color:var(--lp-teal);padding:6px 10px;border-radius:999px;font-weight:700;margin-bottom:10px}
+.hero-left h2{margin:0 0 8px;font-size:28px}
+.hero-left p.lead{color:var(--muted);margin:0 0 12px}
+.hero-right{background:linear-gradient(180deg,#eef7ff,#fff);padding:18px;border-radius:var(--radius);box-shadow:var(--shadow)}
+
+/* Search */
+.search-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.input, select{padding:10px 12px;border-radius:10px;border:1px solid #e6edf3;background:#fff;min-width:140px;outline:none}
+.btn{background:var(--lp-blue);color:#fff;padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+
+/* Sections */
+.section{margin-top:28px}
+.section-title{display:flex;justify-content:space-between;align-items:end;margin-bottom:12px}
+.section-title h3{margin:0;color:var(--lp-blue);font-size:20px}
+
+/* Grid / Cards */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+@media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column}
+.card img{width:100%;height:190px;object-fit:cover}
+.card-body{padding:12px;flex:1;display:flex;flex-direction:column}
+.meta{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.title{font-weight:700;color:var(--lp-blue);margin-top:6px}
+.excerpt{color:var(--muted);margin-top:6px;font-size:14px}
+.card-foot{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:8px}
+
+/* Itinerary layout */
+.itinerary{display:grid;grid-template-columns:1fr 360px;gap:18px}
+@media(max-width:980px){.itinerary{grid-template-columns:1fr}}
+.it-card{background:#fff;border-radius:12px;padding:14px;box-shadow:var(--shadow)}
+.it-day{border-left:3px solid var(--lp-teal);padding:12px;margin-bottom:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfffe)}
+
+/* Blog & gallery */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+@media(max-width:980px){.blog-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.blog-grid{grid-template-columns:1fr}}
+.gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+@media(max-width:980px){.gallery{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}}
+.gallery img{width:100%;height:110px;object-fit:cover;border-radius:8px}
+
+/* Footer */
+.footer{margin-top:28px;padding:16px;border-radius:10px;background:linear-gradient(180deg,#eef6ff,#fff);display:flex;justify-content:space-between;align-items:center;color:var(--muted)}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,0.55);display:none;align-items:center;justify-content:center;padding:20px;z-index:80}
+.modal{background:#fff;max-width:920px;width:100%;border-radius:12px;overflow:hidden;box-shadow:0 40px 80px rgba(2,6,23,0.4)}
+.modal-grid{display:grid;grid-template-columns:1fr 360px}
+@media(max-width:900px){.modal-grid{grid-template-columns:1fr}}
+.modal-left{padding:18px}
+.modal-right{padding:18px;background:linear-gradient(180deg,#fbfeff,#fff)}
+.close{background:#fff;border:1px solid #e6edf3;padding:8px 10px;border-radius:8px;cursor:pointer}
+.small{font-size:13px;color:var(--muted)}
+.pill{padding:6px 10px;border-radius:999px;background:#f1f7fb;border:1px solid #eef7f6;font-weight:700}
+.alert{padding:10px;border-radius:10px;margin-top:10px}
+.ok{background:#ecfdf5;color:#065f46;border:1px solid rgba(6,95,70,0.08)}
+.err{background:#fff1f2;color:#7f1d1d;border:1px solid rgba(127,29,29,0.06)}
+.center{text-align:center}
+.hidden{display:none}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Header -->
+  <div class="header" role="banner">
+    <div class="brand" aria-label="Travel Network">
+      <div class="logo">TN</div>
+      <div>
+        <h1>TRAVEL NETWORK</h1>
+        <div class="small">Ancient Trek • Ladakh • Local Guides</div>
+      </div>
+    </div>
+    <nav class="nav" role="navigation" aria-label="Main">
+      <a href="#tours">Tours</a>
+      <a href="#itineraries">Itineraries</a>
+      <a href="#blog">Journal</a>
+      <a href="#contact">Contact</a>
+      <button class="cta" id="book-cta">Book</button>
+    </nav>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero-left">
+      <div class="kicker">Ancient Trek — Ladakh</div>
+      <h2 id="hero-title">Walk ancient trade trails, meet monastery elders</h2>
+      <p class="lead">Small groups • Local guides • Cultural immersion. Carefully-guided treks across centuries-old routes.</p>
+
+      <div class="search-row" role="search">
+        <input id="q" class="input" placeholder="Search tours (Pangong, Nubra, Rupin...)">
+        <select id="diff" class="input">
+          <option value="">Any difficulty</option>
+          <option>Easy</option>
+          <option>Moderate</option>
+          <option>Hard</option>
+        </select>
+        <select id="dur" class="input">
+          <option value="">Any duration</option>
+          <option value="3">1-3 days</option>
+          <option value="7">4-7 days</option>
+          <option value="14">8+ days</option>
+        </select>
+        <button class="btn" id="apply">Search</button>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:8px;align-items:center">
+        <div class="small">Trusted local guides · Safety-first · Sustainability</div>
+        <div style="margin-left:auto" class="small">Call: +91 98XXXXXXX</div>
+      </div>
+    </div>
+
+    <aside class="hero-right" aria-hidden="false">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div>
+          <div class="small">Featured</div>
+          <div style="font-weight:800">Ancient Trek — Signature</div>
+        </div>
+        <div style="font-weight:800;color:var(--lp-blue)"><span style="font-size:18px">₹</span>15,500</div>
+      </div>
+
+      <div style="margin-top:12px" class="small">Next departures: Mar 10 · Apr 5 · May 20</div>
+      <button class="btn" id="featured-book" style="margin-top:12px;width:100%">Request Booking</button>
+    </aside>
+  </section>
+
+  <!-- Tours -->
+  <section id="tours" class="section" aria-labelledby="tours-title">
+    <div class="section-title">
+      <h3 id="tours-title">Tours & Packages</h3>
+      <div class="small">Curated journeys — handpicked routes</div>
+    </div>
+
+    <div id="tours-grid" class="grid" role="list">
+      <!-- JS injects cards -->
+    </div>
+  </section>
+
+  <!-- Itineraries -->
+  <section id="itineraries" class="section">
+    <h3 style="color:var(--lp-blue)">Sample Itinerary — Ancient Trek (7 days)</h3>
+    <div class="itinerary" style="margin-top:12px">
+      <div>
+        <div class="it-card">
+          <h4>Ancient Trek — Signature</h4>
+          <div class="small">Region: Leh & Ladakh · Difficulty: Moderate · Group: 6–12</div>
+          <p style="margin-top:8px;color:var(--muted)">A cultural & high-altitude route visiting ancient passes, remote monasteries and traditional villages.</p>
+          <div id="it-days" style="margin-top:12px"></div>
+        </div>
+      </div>
+
+      <aside>
+        <div class="it-card">
+          <strong>Trip facts</strong>
+          <ul style="margin-top:8px;color:var(--muted);padding-left:18px">
+            <li>Duration: 7 days</li>
+            <li>Price: ₹15,500 per person</li>
+            <li>Includes: Local guide, permits, select meals</li>
+            <li>Group departures & private dates</li>
+          </ul>
+          <div style="margin-top:12px">
+            <button class="btn" id="open-book">Request Booking</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Blog -->
+  <section id="blog" class="section">
+    <div class="section-title">
+      <h3>From the Journal</h3>
+      <div class="small">Travel tips, culture & route notes</div>
+    </div>
+
+    <div id="blog-grid" class="blog-grid">
+      <!-- JS injects blog cards -->
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery" class="section">
+    <h3>Gallery — Ladakh Highlights</h3>
+    <div id="gallery-grid" class="gallery" style="margin-top:12px"></div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="section" aria-labelledby="contact-title" style="margin-top:18px">
+    <h3 id="contact-title">Contact & Booking</h3>
+    <div style="display:grid;grid-template-columns:1fr 320px;gap:14px;margin-top:12px">
+      <div class="it-card">
+        <p class="small">Use the form to request availability — we'll reply with confirmation & payment options.</p>
+        <form id="contact-form" novalidate>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+            <input class="input" name="name" placeholder="Full name*" required>
+            <input class="input" name="email" type="email" placeholder="Email*" required>
+            <input class="input" name="phone" placeholder="Phone">
+            <input class="input" name="trip" placeholder="Trip name (optional)">
+          </div>
+          <textarea class="input" name="message" placeholder="Message / Preferred dates" style="width:100%;margin-top:8px;min-height:100px"></textarea>
+          <div style="display:flex;gap:8px;align-items:center;margin-top:8px">
+            <button class="btn" type="submit">Send request</button>
+            <div id="form-status" class="small" style="margin-left:8px"></div>
+          </div>
+        </form>
+      </div>
+
+      <aside class="it-card">
+        <strong>Contact</strong>
+        <div style="margin-top:8px" class="small">
+          <div>Travel Network, Leh, Ladakh</div>
+          <div>Phone: +91 98XXXXXXX</div>
+          <div>Email: info@example.com</div>
+        </div>
+        <div style="margin-top:12px" class="small">We use contact info only to reply to your enquiry.</div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div class="footer" role="contentinfo">
+    <div>© <span id="year"></span> TRAVEL NETWORK</div>
+    <div class="small">Design inspired by Lonely Planet palette • Built with demo code</div>
+  </div>
+</div>
+
+<!-- Modal (tour detail & booking) -->
+<div id="modal" class="modal-backdrop" role="dialog" aria-hidden="true">
+  <div class="modal" role="document">
+    <div class="modal-grid">
+      <div class="modal-left" id="modal-left">
+        <!-- filled by JS -->
+      </div>
+      <div class="modal-right">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div>
+            <div class="small">Price from</div>
+            <div style="font-weight:800;color:var(--lp-blue)" id="modal-price"></div>
+          </div>
+          <button class="close" id="modal-close">Close</button>
+        </div>
+
+        <div style="margin-top:12px">
+          <form id="book-form">
+            <div class="small" style="margin-bottom:8px">Request booking — we’ll reply with options.</div>
+            <input class="input" name="bname" placeholder="Full name" required style="margin-bottom:8px">
+            <input class="input" name="bemail" type="email" placeholder="Email" required style="margin-bottom:8px">
+            <input class="input" name="bphone" placeholder="Phone" style="margin-bottom:8px">
+            <input class="input" name="bdate" type="date" style="margin-bottom:8px">
+            <div style="display:flex;gap:8px">
+              <button class="btn" type="submit" style="flex:1">Send request</button>
+              <button type="button" class="close" id="copy-book">Copy</button>
+            </div>
+            <div id="book-status" class="small" style="margin-top:8px"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Editable data & scripts ===== -->
+<script>
+/* ========== CONFIG: edit these values ========== */
+const SITE = {
+  brand: "TRAVEL NETWORK",
+  phone: "+91 98XXXXXXX",
+  endpoint: "YOUR_FORM_ENDPOINT_URL" // replace with real endpoint (Formspree, Netlify function) to submit forms
+};
+
+/* ========== SAMPLE CONTENT (edit as needed) ========== */
+const TOURS = [
+  {
+    id: "ancient-sign",
+    title: "Ancient Trek — Signature",
+    region: "Leh & Ladakh",
+    days: 7,
+    difficulty: "Moderate",
+    price: 15500,
+    priceDisplay: "₹15,500",
+    img: "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1400&q=60",
+    excerpt: "Cultural high-altitude trek visiting monasteries, alpine meadows and traditional villages.",
+    highlights: ["Ancient passes", "Monastery visits", "Village homestays"],
+    itinerary: [
+      {day:1, title:"Arrival & Acclimatisation", desc:"Arrive Leh. Intro walk & local market."},
+      {day:2, title:"Leh to Hemis — Begin trek", desc:"Drive to Hemis and start along old trails."},
+      {day:3, title:"High meadows & passes", desc:"Panoramic passes and camp under stars."},
+      {day:4, title:"Village homestays", desc:"Experience local culture & food."},
+      {day:5, title:"Monastery visits", desc:"Visit ancient monasteries with local monk guides."},
+      {day:6, title:"Return leg & farewell", desc:"Return toward Leh with local festivities."},
+      {day:7, title:"Departure", desc:"Transfer to airport or extra day for market."}
+    ]
+  },
+  {
+    id: "pangong-get",
+    title: "Pangong Lake Getaway",
+    region: "Leh & Ladakh",
+    days: 2,
+    difficulty: "Easy",
+    price: 6000,
+    priceDisplay: "₹6,000",
+    img: "https://images.unsplash.com/photo-1500048993959-d6e0b4169a6b?auto=format&fit=crop&w=1400&q=60",
+    excerpt: "Short escape to the famous blue lake and Changla pass.",
+    highlights: ["Pangong Lake", "Changla Pass", "Sunset views"],
+    itinerary: [
+      {day:1, title:"Leh → Pangong", desc:"Drive to Pangong, set camp by the lake."},
+      {day:2, title:"Return to Leh", desc:"Sunrise at the lake and return drive."}
+    ]
+  },
+  {
+    id: "nubra-ex",
+    title: "Nubra Valley Explorer",
+    region: "Leh & Ladakh",
+    days: 3,
+    difficulty: "Easy",
+    price: 8500,
+    priceDisplay: "₹8,500",
+    img: "https://images.unsplash.com/photo-1533104816931-20fa691ff6ca?auto=format&fit=crop&w=1400&q=60",
+    excerpt: "Dunes, monasteries, and scenic valley drives.",
+    highlights: ["Hunder dunes","Diskit monastery","Local villages"],
+    itinerary: [
+      {day:1, title:"Leh → Nubra", desc:"Drive over Khardung La to Nubra."},
+      {day:2, title:"Explore dunes & monasteries", desc:"Hunder camels, local visits."},
+      {day:3, title:"Return to Leh", desc:"Drive back and depart."}
+    ]
+  }
+];
+
+const BLOG = [
+  {id:"b1", title:"Preparing for High Altitude: Practical Tips", excerpt:"How to prepare, what to pack, and simple acclimatisation tips.", img:"https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=60"},
+  {id:"b2", title:"Monasteries of Ladakh: A Short Guide", excerpt:"A quick overview of must-visit monasteries and visiting etiquette.", img:"https://images.unsplash.com/photo-1526481280698-8d6f3f3c9a7a?auto=format&fit=crop&w=800&q=60"}
+];
+
+const GALLERY = [
+  "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1549880338-65ddcdfd017b?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1477587458883-47145ed94245?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1499346030926-9a72daac6c63?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1517821362436-6f73a9b4c5d4?auto=format&fit=crop&w=1200&q=60",
+  "https://images.unsplash.com/photo-1482192505345-5655af888cc4?auto=format&fit=crop&w=1200&q=60"
+];
+
+/* ========== helpers ========== */
+function esc(s){ return (s||"").toString().replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;"); }
+
+/* ========== render functions ========== */
+function renderTours(){
+  const grid = document.getElementById('tours-grid');
+  grid.innerHTML = '';
+  TOURS.forEach(t=>{
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `
+      <img src="${t.img}" alt="${esc(t.title)}">
+      <div class="card-body">
+        <div class="meta"><div class="pill">${esc(t.region)}</div><div class="small">${t.days} days</div></div>
+        <div class="title">${esc(t.title)}</div>
+        <div class="excerpt">${esc(t.excerpt)}</div>
+        <div class="card-foot">
+          <div style="font-weight:800;color:var(--lp-blue)">${t.priceDisplay}</div>
+          <div style="display:flex;gap:8px">
+            <button class="btn" data-id="${t.id}" data-action="view">View</button>
+            <button class="btn" style="background:var(--lp-teal)" data-id="${t.id}" data-action="book">Book</button>
+          </div>
+        </div>
+      </div>`;
+    grid.appendChild(div);
+  });
+}
+
+function renderItinerary(){
+  const c = document.getElementById('it-days');
+  c.innerHTML = '';
+  const days = TOURS[0].itinerary || [];
+  days.forEach(d=>{
+    const el = document.createElement('div');
+    el.className = 'it-day';
+    el.innerHTML = `<strong>Day ${d.day} — ${esc(d.title)}</strong><div class="small" style="margin-top:6px">${esc(d.desc)}</div>`;
+    c.appendChild(el);
+  });
+}
+
+function renderBlog(){
+  const g = document.getElementById('blog-grid');
+  g.innerHTML = '';
+  BLOG.forEach(b=>{
+    const div = document.createElement('div');
+    div.className = 'card';
+    div.innerHTML = `<img src="${b.img}" alt="${esc(b.title)}"><div class="card-body"><div class="title">${esc(b.title)}</div><div class="excerpt">${esc(b.excerpt)}</div></div>`;
+    g.appendChild(div);
+  });
+}
+
+function renderGallery(){
+  const g = document.getElementById('gallery-grid');
+  g.innerHTML = '';
+  GALLERY.forEach(url=>{
+    const img = document.createElement('img');
+    img.src = url; img.loading = 'lazy'; g.appendChild(img);
+  });
+}
+
+/* ========== modal functions ========== */
+const modal = document.getElementById('modal');
+const modalLeft = document.getElementById('modal-left');
+const modalPrice = document.getElementById('modal-price');
+let activeTour = null;
+
+function openModal(id){
+  const t = TOURS.find(x=>x.id===id); if(!t) return;
+  activeTour = t;
+  modalLeft.innerHTML = `
+    <img src="${t.img}" alt="${esc(t.title)}" style="width:100%;height:260px;object-fit:cover">
+    <div style="padding:12px">
+      <h2 style="margin:0;color:var(--lp-blue)">${esc(t.title)}</h2>
+      <div class="small" style="margin-top:6px">${esc(t.region)} · ${t.difficulty} · ${t.days} days</div>
+      <p style="margin-top:12px">${esc(t.excerpt)}</p>
+      <strong>Highlights:</strong>
+      <ul style="margin-top:6px;color:var(--muted)">${t.highlights.map(h=>`<li>${esc(h)}</li>`).join('')}</ul>
+      <strong style="display:block;margin-top:12px">Itinerary</strong>
+      ${t.itinerary.map(d=>`<div style="margin-top:8px"><strong>Day ${d.day} — ${esc(d.title)}</strong><div class="small" style="margin-top:4px">${esc(d.desc)}</div></div>`).join('')}
+    </div>`;
+  modalPrice.textContent = t.priceDisplay;
+  modal.style.display = 'flex';
+  modal.setAttribute('aria-hidden','false');
+}
+
+function closeModal(){
+  modal.style.display = 'none';
+  modal.setAttribute('aria-hidden','true');
+  activeTour = null;
+}
+
+/* ========== events & forms ========== */
+document.body.addEventListener('click', async (e)=>{
+  const btn = e.target.closest('button[data-action]');
+  if(!btn) return;
+  const id = btn.getAttribute('data-id');
+  const action = btn.getAttribute('data-action');
+  if(action === 'view') openModal(id);
+  if(action === 'book') {
+    openModal(id);
+    // focus booking name after modal appears
+    setTimeout(()=> document.querySelector('#book-form input[name="bname"]').focus(),150);
+  }
+});
+
+document.getElementById('modal-close').addEventListener('click', closeModal);
+window.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+/* booking form in modal */
+document.getElementById('book-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const st = document.getElementById('book-status'); st.textContent = 'Sending…';
+  const fd = new FormData(e.target);
+  const payload = {
+    tour: activeTour ? activeTour.title : '',
+    name: fd.get('bname'),
+    email: fd.get('bemail'),
+    phone: fd.get('bphone'),
+    start: fd.get('bdate')
+  };
+
+  try {
+    if(!SITE.endpoint || SITE.endpoint === 'YOUR_FORM_ENDPOINT_URL'){
+      await navigator.clipboard.writeText(JSON.stringify(payload,null,2));
+      st.textContent = 'Demo: booking copied to clipboard. Configure SITE.endpoint to submit.';
+      setTimeout(()=> st.textContent = '',2200);
+      return;
+    }
+    const res = await fetch(SITE.endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(res.ok){ st.textContent='Request sent — we will contact you.'; e.target.reset(); } else { st.textContent = 'Server error: '+res.status; }
+  } catch(err){ console.error(err); st.textContent = 'Network error. Try again.'; }
+});
+
+/* copy-book button */
+document.getElementById('copy-book').addEventListener('click', async ()=>{
+  if(!activeTour) return;
+  const txt = `Trip: ${activeTour.title}\nPrice: ${activeTour.priceDisplay}\nRegion: ${activeTour.region}\nContact: ${SITE.phone}`;
+  await navigator.clipboard.writeText(txt);
+  document.getElementById('book-status').textContent = 'Trip details copied to clipboard';
+  setTimeout(()=> document.getElementById('book-status').textContent = '',1600);
+});
+
+/* contact form */
+document.getElementById('contact-form').addEventListener('submit', async function(e){
+  e.preventDefault();
+  const status = document.getElementById('form-status'); status.textContent = 'Sending…';
+  const fd = new FormData(e.target);
+  const payload = {
+    name: fd.get('name'),
+    email: fd.get('email'),
+    phone: fd.get('phone'),
+    trip: fd.get('trip'),
+    message: fd.get('message')
+  };
+  try {
+    if(!SITE.endpoint || SITE.endpoint === 'YOUR_FORM_ENDPOINT_URL'){
+      await navigator.clipboard.writeText(JSON.stringify(payload,null,2));
+      status.textContent = 'Demo: request copied to clipboard. Configure SITE.endpoint to submit.';
+      setTimeout(()=> status.textContent = '',2200);
+      return;
+    }
+    const res = await fetch(SITE.endpoint, {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    if(res.ok){ status.textContent = 'Request sent. We will reply soon.'; e.target.reset(); } else { status.textContent = 'Server error: '+res.status; }
+  } catch(err){ console.error(err); status.textContent = 'Network error. Try again.'; }
+});
+
+/* featured booking button */
+document.getElementById('featured-book').addEventListener('click', ()=> {
+  openModal(TOURS[0].id);
+});
+
+/* book-cta top */
+document.getElementById('book-cta').addEventListener('click', ()=> { window.scrollTo({top: document.getElementById('contact').offsetTop - 30, behavior:'smooth'}); });
+
+/* search */
+document.getElementById('apply').addEventListener('click', ()=>{
+  const q = (document.getElementById('q').value||'').toLowerCase();
+  const diff = document.getElementById('diff').value;
+  const dur = parseInt(document.getElementById('dur').value||'0',10);
+  let out = TOURS.slice();
+  if(q) out = out.filter(t => (t.title + ' ' + t.excerpt).toLowerCase().includes(q));
+  if(diff) out = out.filter(t => t.difficulty === diff);
+  if(dur) out = out.filter(t => t.days <= dur);
+  // render filtered
+  const grid = document.getElementById('tours-grid'); grid.innerHTML = '';
+  out.forEach(t=>{
+    const card = document.createElement('div'); card.className='card';
+    card.innerHTML = `<img src="${t.img}" alt="${esc(t.title)}"><div class="card-body"><div class="meta"><div class="pill">${esc(t.region)}</div><div class="small">${t.days} days</div></div><div class="title">${esc(t.title)}</div><div class="excerpt">${esc(t.excerpt)}</div><div class="card-foot"><div style="font-weight:800;color:var(--lp-blue)">${t.priceDisplay}</div><div style="display:flex;gap:8px"><button class="btn" data-id="${t.id}" data-action="view">View</button><button class="btn" style="background:var(--lp-teal)" data-id="${t.id}" data-action="book">Book</button></div></div></div>`;
+    grid.appendChild(card);
+  });
+});
+
+/* init render */
+document.getElementById('year').textContent = new Date().getFullYear();
+renderTours(); renderItinerary(); renderBlog(); renderGallery();
+</script>
+
+</body>
+</html>
