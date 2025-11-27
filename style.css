@@ -1,1 +1,138 @@
+/* ----- GLOBAL ----- */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Lato:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background: #ffffff;
+    color: #222;
+}
+
+:root {
+    --blue: #0057A8;     /* Lonely Planet Blue */
+    --dark: #003f78;
+    --light: #f5f9ff;
+}
+
+/* ----- HEADER ----- */
+header {
+    width: 100%;
+    background: var(--blue);
+    padding: 15px 0;
+}
+
+nav {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a.logo {
+    color: #fff;
+    font-size: 26px;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    opacity: 0.7;
+}
+
+/* ----- HERO SECTION ----- */
+.hero {
+    height: 80vh;
+    background: url('https://images.unsplash.com/photo-1519682337058-a94d519337bc') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    padding-left: 6%;
+    color: white;
+}
+
+.hero h1 {
+    font-size: 52px;
+    max-width: 500px;
+    font-family: 'Montserrat';
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 450px;
+    margin-top: -10px;
+}
+
+.hero button {
+    margin-top: 25px;
+    padding: 12px 28px;
+    background: #fff;
+    color: var(--blue);
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ----- SECTION DEFAULT ----- */
+section {
+    width: 90%;
+    margin: 70px auto;
+}
+
+/* ----- TOUR CARDS ----- */
+.tour-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    background: var(--light);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.card .info {
+    padding: 15px;
+}
+
+.card h3 {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.card .price {
+    color: var(--blue);
+    font-weight: 700;
+}
+
+/* ----- FOOTER ----- */
+footer {
+    background: var(--blue);
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 80px;
+}
 
